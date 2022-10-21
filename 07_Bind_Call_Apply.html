@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn1">Click Me 1</button>
+    <button id="btn2">Click Me 2</button>
+    <button id="btn3">Click Me 3</button>
+    <button id="btn4">Click Me 4</button>
+    <button id="btn5">Click Me 5</button>
+    <button id="btn6">Click Me 6</button>
+    <button id="btn7">Click Me 7</button>
+    <button id="btn8">Click Me 8</button>
+    <button id="btn9">Click Me 9</button>
+    <button id="btn10">Click Me 10</button>
+    <button id="btn11">Click Me 11</button>
+    <button id="btn12">Click Me 12</button>
+    <button id="btn13">Click Me 13</button>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <p id="p4"></p>
+    <p id="p5"></p>
+    <p id="p6"></p>
+    <p id="p7"></p>
+    <p id="p8"></p>
+    <p id="p9"></p>
+    <p id="p10"></p>
+    <p id="p11"></p>
+    <p id="p12"></p>
+    <p id="p13"></p>
+
+    <script>
+      'use strict';
+
+      const clickHandler = () => {
+        document.getElementById('p1').innerHTML += 'Clicked, Without Parameter, ';
+      };
+
+      let clickHandlerWithEventParameter = function (e) {
+        console.log(e);
+        document.getElementById('p2').innerHTML += 'Clicked, With Event Parameter,';
+      };
+
+      let clickHandlerWithParameter = function (id, message, e) {
+        console.log(e);
+        console.log(this);
+        console.log(this?.id);
+        document.getElementById(id).innerHTML = 'Clicked, ' + message;
+      };
+
+      // document.getElementById('btn1').onclick = function(){};
+      document.getElementById('btn1').onclick = clickHandler;
+
+      // document.getElementById('btn2').onclick = function(e){};
+      document.getElementById('btn2').onclick = clickHandlerWithEventParameter;
+
+      // راه اول
+      document.getElementById('btn3').onclick = function (e) {
+        clickHandlerWithParameter('p3', 'With Parameter', e);
+      };
+
+      // راه دوم
+      document.getElementById('btn4').onclick = (e) => {
+        clickHandlerWithParameter('p4', 'With Parameter', e);
+      };
+
+      /*
+          event = fn.bind(this, ...params)
+      */
+      // راه سوم
+      document.getElementById('btn5').onclick = clickHandlerWithParameter.bind(
+        this,
+        'p5',
+        'With Parameter (bind) this=window'
+      );
+      document.getElementById('btn6').onclick = clickHandlerWithParameter.bind(
+        document.getElementById('btn6'),
+        'p6',
+        'With Parameter (bind) this=btn6'
+      );
+
+      /************* Call ***************/
+
+      var firstName = 'Mohammad';
+      var lastName = 'Asgharian';
+
+      console.log(window.firstName, window.lastName);
+      console.log(firstName, lastName);
+
+      const person = {
+        firstName: 'Sajad',
+        lastName: 'Hosseini',
+        fullName: function (type = 0) {
+          console.log(this);
+          return type === 0
+            ? `${this.firstName} ${this.lastName}`
+            : `${this.lastName}, ${this.firstName}`;
+        },
+        changeName: function (firstName, lastName) {
+          console.log(this);
+          this.firstName = firstName;
+          this.lastName = lastName;
+        },
+      };
+
+      document.getElementById('btn7').onclick = function () {
+        document.getElementById('p7').innerHTML = person.fullName();
+      };
+
+      document.getElementById('btn8').onclick = function () {
+        person.changeName('Samaneh', 'Mohammadi');
+        document.getElementById('p8').innerHTML = person.fullName(1);
+      };
+
+      const person1 = {
+        firstName: 'Zahra',
+        lastName: 'Kalbasi',
+      };
+      const person2 = {
+        firstName: 'Fiazeh',
+        lastName: 'Saadatnia',
+      };
+
+      /*
+        fn() => fn.call()
+        fn.call(this, ...params)
+      */
+      document.getElementById('btn9').onclick = function () {
+        console.log(window);
+        document.getElementById('p9').innerHTML = person.fullName.call(window, 0);
+      };
+      document.getElementById('btn10').onclick = function () {
+        document.getElementById('p10').innerHTML = person.fullName.call(person1, 0);
+      };
+      document.getElementById('btn11').onclick = function () {
+        document.getElementById('p11').innerHTML = person.fullName.call(person2, 1);
+      };
+      document.getElementById('btn12').onclick = function () {
+        person.changeName.call(person2, 'Mohammad', 'Esmaeili')
+        document.getElementById('p12').innerHTML = person.fullName.call(person2, 1)
+      };
+      /******** Apply *********/
+      document.getElementById('btn13').onclick = function () {
+        person.changeName.apply(person2, ['Mona', 'Nasiri'])
+        document.getElementById('p13').innerHTML = person.fullName.apply(person2, [0])
+      }
+    </script>
+  </body>
+</html>
