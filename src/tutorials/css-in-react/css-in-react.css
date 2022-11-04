@@ -1,0 +1,17 @@
+.css-in-react-wrapper {
+    background-color: #f1f1f1;
+    padding: 1em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+ .title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 300;
+    margin: 0;
+    margin-bottom: 30px;
+}
+ p {
+    margin: 0;
+    margin-bottom: 16px;
+    font-size: 18px;
+}

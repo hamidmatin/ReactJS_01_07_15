@@ -49,7 +49,7 @@ import { INSTITUE, showTeacherInfo } from './my-module';
 
 import { Course, studentList } from './my-module';
 
-export const ReactModuleIntro = () => {
+const ReactModuleIntro = () => {
   console.log(myModules);
 
   const myCourse = new Course('ReactJS', 40);
@@ -107,3 +107,5 @@ export const ReactModuleIntro = () => {
     </div>
   );
 };
+
+export default ReactModuleIntro

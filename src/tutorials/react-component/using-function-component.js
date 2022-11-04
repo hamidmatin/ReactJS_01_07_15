@@ -6,7 +6,7 @@ import { FunctionComponent4 } from './function-components';
 import { FunctionComponent5 } from './function-components';
 import { FunctionComponent6 } from './function-components';
 
-export const UsingFunctionComponent = () => {
+const UsingFunctionComponent = () => {
   const fn1 = FunctionComponent1();
   const fn2 = FunctionComponent2({
     title: 'Function Component (2)',
@@ -64,3 +64,5 @@ export const UsingFunctionComponent = () => {
     </div>
   );
 };
+
+export default UsingFunctionComponent

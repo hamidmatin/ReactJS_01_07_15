@@ -1,0 +1,15 @@
+.class-modules-wrapper {
+    background-color: #7bd9f0;
+    padding: 2em;
+    font-family: 'Times New Roman', Times, serif
+}
+ .title {
+    text-align: start;
+    font-size: 28px;
+    font-weight: 900;
+}
+.class-modules-wrapper p {
+    margin: 0;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
