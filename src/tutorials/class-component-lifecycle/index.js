@@ -1,0 +1,1 @@
+export { default as ClassComponetLifecycle } from './class-component-lifecycle'

@@ -1,0 +1,11 @@
+.base-page {
+    padding: 2em;
+}
+.title {
+    font-size: 2em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 300;
+}
+.title span {
+    border-bottom: 2px solid red;
+}

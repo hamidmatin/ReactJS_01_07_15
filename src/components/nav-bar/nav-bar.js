@@ -8,12 +8,16 @@ const NavBar = () => {
     <nav className={styles['navbar']}>
       <Nav>
         <NavItem content='Home' to={'/'}/>
-        <NavItem content='React Modules' to={'/react-modules'}/>
+        <NavItem content='Tutorials' to={'/tutorials'}/>
+
+        {/* <NavItem content='React Modules' to={'/react-modules'}/>
         <NavItem content='Function Components' to={'/function-component'}/>
         <NavItem content='Class Components' to={'/class-component'}/>
         <NavItem content='CSS in React' to={'/css-in-react'}/>
         <NavItem content='Class Modules' to={'/class-modules'}/>
         <NavItem content='Event & State in CC' to={'/event-state-cc'}/>
+        <NavItem content='CC Lifecycle' to={'/cc-lifecycle'}/> */}
+        <NavItem content='Calculator' to={'/calculator'}/>
       </Nav>
     </nav>
   );
