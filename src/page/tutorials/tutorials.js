@@ -33,6 +33,9 @@ const TutorialsPage = () => {
             <li>
               <NavLink to='cc-lifecycle'>CC Lifecycle</NavLink>
             </li>
+            <li>
+              <NavLink to='state-in-fc'>State In FC</NavLink>
+            </li>
       
           </ul>
         </aside>

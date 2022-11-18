@@ -1,0 +1,1 @@
+export { default as CalculatorFCPage } from './calculator-fc'
