@@ -13,6 +13,7 @@ import { TutorialsPage } from './page/tutorials';
 import { TutorialsHomePage } from './tutorials';
 import { StateInFC } from './tutorials/state-in-fc';
 import { CalculatorFCPage } from './page/calculator-fc';
+import { UsersPage } from './page/users'
 
 export default function App() {
   return (
@@ -34,6 +35,7 @@ export default function App() {
 
           <Route path='/calculator' element={<CalculatorPage />} />
           <Route path='/calculator-fc' element={<CalculatorFCPage />} />
+          <Route path='/users' element={<UsersPage />} />
 
           <Route path='*' element={<NotFoundPage />} />
         </Routes>

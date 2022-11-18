@@ -19,6 +19,7 @@ const NavBar = () => {
         <NavItem content='CC Lifecycle' to={'/cc-lifecycle'}/> */}
         <NavItem content='Calculator' to={'/calculator'}/>
         <NavItem content='Calculator FC' to={'/calculator-fc'}/>
+        <NavItem content='Users' to={'/users'}/>
       </Nav>
     </nav>
   );
