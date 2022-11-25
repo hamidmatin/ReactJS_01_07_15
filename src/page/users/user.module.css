@@ -1,0 +1,63 @@
+.add-new {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px;
+}
+.add-new-button {
+    text-decoration: none;
+    display: block;
+    padding: 8px;
+    background-color: lightgreen;
+    color: white;
+}
+.add-new-button:hover {
+    background-color: green;
+}
+
+.user-form {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #ccc;
+    box-shadow: 0 6px 6px -4px rgb(74, 74, 74);
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 10px;
+}
+.user-form input {
+    padding: 0.5em;
+}
+.user-form label {
+    cursor: pointer;
+}
+.form-footer {
+    grid-column: 1 / span 2;
+    display: flex;
+    justify-content: flex-end;
+}
+.save-button{
+    background-color: lightgreen;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+.save-button:hover{
+    background-color: green;
+}
+.cancel-button{
+    background-color: orangered;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 8px;
+}
+.cancel-button:hover{
+    background-color: darkred;
+}

@@ -1,100 +1,63 @@
-import React, { useState } from 'react';
-import { BasePage } from '../../components/base-page';
-import UsersCardView from './users-card-view';
-import UsersTableView from './users-table-view';
-import * as constants from './contants';
+import React, { useState, useEffect } from "react";
+import { BasePage } from "../../components/base-page";
+import { Container } from "../../css-framework";
+import { UsersCardView } from "./card-view";
+import { UsersTableView } from "./tabl-view";
+import * as constants from "./contants";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import styles from './user.module.css';
 
 const UsersPage = () => {
   const [usersView, setUsersView] = useState(constants.TABLE_VIEW);
-  const [userList, setUserList] = useState([
-    {
-      id: 1,
-      name: 'Leanne Graham',
-      username: 'Bret',
-      email: 'Sincere@april.biz',
-      address: {
-        street: 'Kulas Light',
-        suite: 'Apt. 556',
-        city: 'Gwenborough',
-        zipcode: '92998-3874',
-        geo: {
-          lat: '-37.3159',
-          lng: '81.1496',
-        },
-      },
-      phone: '1-770-736-8031 x56442',
-      website: 'hildegard.org',
-      company: {
-        name: 'Romaguera-Crona',
-        catchPhrase: 'Multi-layered client-server neural-net',
-        bs: 'harness real-time e-markets',
-      },
-    },
-    {
-      id: 2,
-      name: 'Ervin Howell',
-      username: 'Antonette',
-      email: 'Shanna@melissa.tv',
-      address: {
-        street: 'Victor Plains',
-        suite: 'Suite 879',
-        city: 'Wisokyburgh',
-        zipcode: '90566-7771',
-        geo: {
-          lat: '-43.9509',
-          lng: '-34.4618',
-        },
-      },
-      phone: '010-692-6593 x09125',
-      website: 'anastasia.net',
-      company: {
-        name: 'Deckow-Crist',
-        catchPhrase: 'Proactive didactic contingency',
-        bs: 'synergize scalable supply-chains',
-      },
-    },
-    {
-      id: 3,
-      name: 'Clementine Bauch',
-      username: 'Samantha',
-      email: 'Nathan@yesenia.net',
-      address: {
-        street: 'Douglas Extension',
-        suite: 'Suite 847',
-        city: 'McKenziehaven',
-        zipcode: '59590-4157',
-        geo: {
-          lat: '-68.6102',
-          lng: '-47.0653',
-        },
-      },
-      phone: '1-463-123-4447',
-      website: 'ramiro.info',
-      company: {
-        name: 'Romaguera-Jacobson',
-        catchPhrase: 'Face to face bifurcated interface',
-        bs: 'e-enable strategic applications',
-      },
-    },
-  ]);
+  const [userList, setUserList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    axios.get(constants.BASE_URL + "/users").then((res) => {
+      console.log(res);
+      setUserList(res.data);
+      setIsLoading(false);
+    });
+  }, []);
+
+  const onDeleteUserHandler = (id) => {
+    console.log(id);
+    const deletedUserList = userList.filter((user) => user.id !== id);
+    setUserList(deletedUserList);
+
+    axios.delete(constants.BASE_URL + "/users/" + id).then((response) => {
+      console.log(response);
+    });
+  };
 
   return (
-    <BasePage title={'Users'}>
+    <BasePage title={"Users"} isLoading={isLoading}>
       <span
         onClick={() => {
           setUsersView(
-            usersView === constants.TABLE_VIEW ? constants.CARD_VIEW : constants.TABLE_VIEW
+            usersView === constants.TABLE_VIEW
+              ? constants.CARD_VIEW
+              : constants.TABLE_VIEW
           );
         }}
       >
         Toggle Switch
       </span>
 
-      {usersView === constants.TABLE_VIEW ? (
-        <UsersTableView users={userList} />
-      ) : (
-        <UsersCardView users={userList} />
-      )}
+      <Container>
+      <div className={styles['add-new']}>
+        <Link to={'new'} className={styles['add-new-button']}>
+          <i className="material-symbols-outlined">add</i>
+        </Link>
+      </div>
+
+        {usersView === constants.TABLE_VIEW ? (
+          <UsersTableView users={userList} onDeleteUser={onDeleteUserHandler} />
+        ) : (
+          <UsersCardView users={userList} onDeleteUser={onDeleteUserHandler} />
+        )}
+      </Container>
     </BasePage>
   );
 };

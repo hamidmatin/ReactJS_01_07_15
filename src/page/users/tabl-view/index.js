@@ -1,0 +1,1 @@
+export { default as UsersTableView } from  './users-table-view'
