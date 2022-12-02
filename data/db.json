@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "name": "afsdf",
+      "username": "sdfadfa",
+      "email": "4323dfadfadfa",
+      "phone": "ds",
+      "id": 1
+    },
+    {
+      "name": "sdsd",
+      "username": "sds",
+      "email": "",
+      "phone": "",
+      "id": 2
+    },
+    {
+      "name": "bvb",
+      "username": "cn",
+      "email": "bnbc",
+      "phone": "bn",
+      "id": 3
+    },
+    {
+      "name": "nmnvm",
+      "username": "nmbn",
+      "email": "bnmbn",
+      "phone": "bm",
+      "id": 4
+    }
+  ],
+  "posts": [],
+  "products": []
+}

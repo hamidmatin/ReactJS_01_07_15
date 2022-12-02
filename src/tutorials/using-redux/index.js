@@ -1,0 +1,1 @@
+export { default as UsingRedux } from './using-redux'

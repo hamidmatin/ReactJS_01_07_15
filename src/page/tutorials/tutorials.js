@@ -36,6 +36,12 @@ const TutorialsPage = () => {
             <li>
               <NavLink to='state-in-fc'>State In FC</NavLink>
             </li>
+            <li>
+              <NavLink to='using-redux'>Using Redux</NavLink>
+            </li>
+            <li>
+              <NavLink to='using-context'>Using Context</NavLink>
+            </li>
       
           </ul>
         </aside>
